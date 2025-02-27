@@ -4,14 +4,7 @@ import java.time.LocalDateTime;
 
 import com.gerenciamento.aulas.entity.enums.StatusAula;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +23,7 @@ public class Aulas {
 
     @ManyToOne
     @JoinColumn(name = "idAluno", nullable = false)
-    private Alunos aluno;
+    private Alunos alunos;
 
     @ManyToOne
     @JoinColumn(name = "idProfessor", nullable = false)
@@ -56,7 +49,8 @@ public class Aulas {
     private Boolean alunoPresente;
 
     private LocalDateTime dataCadastro;
-
+    @Temporal(TemporalType.DATE)
     private LocalDateTime dataAlteracao;
+
 
 }
